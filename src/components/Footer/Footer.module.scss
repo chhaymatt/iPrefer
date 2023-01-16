@@ -1,0 +1,10 @@
+.Footer {
+	margin: 2rem;
+	text-align: center;
+
+	&__Link {
+		padding: 0.5rem 1rem;
+		text-decoration: none;
+		border-radius: 10px;
+	}
+}

@@ -1,0 +1,23 @@
+.Card {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	justify-content: space-around;
+	width: 300px;
+	margin: 10px;
+	// background-color: green;
+	padding: 1rem;
+	border-radius: 1rem;
+	border: 1px solid;
+
+	&__Image {
+		height: 300px;
+		width: 300px;
+		object-fit: cover;
+		border-radius: 0.5rem;
+	}
+
+	&__LearnMore {
+        padding-top: 0.5rem;
+	}
+}
