@@ -5,7 +5,7 @@ import { OptionProps } from "../../interfaces/OptionProps";
 const Card: React.FC<OptionProps> = ({ name, image, learnMoreLink }) => {
 	return (
 		<div className={styles.Card}>
-			<h2>{name}</h2>
+			<h3>{name}</h3>
 			<img className={styles.Card__Image} src={image} alt={name} />
 			<a
 				className={styles.Card__LearnMore}
