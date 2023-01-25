@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./CardList.module.scss";
 import { OptionProps } from "../../interfaces/OptionProps";
 import Card from "../Card/Card";
@@ -89,66 +89,99 @@ const data = [
 	},
 ];
 
-function shuffle(array: Array<OptionProps>) {
-	let currentIndex = array.length,
-		randomIndex;
-
-	// While there remain elements to shuffle.
-	while (currentIndex != 0) {
-		// Pick a remaining element.
-		randomIndex = Math.floor(Math.random() * currentIndex);
-		currentIndex--;
-
-		// And swap it with the current element.
-		[array[currentIndex], array[randomIndex]] = [
-			array[randomIndex],
-			array[currentIndex],
-		];
-	}
-	return array;
-}
-
-const remainingOptions = [...data];
-shuffle(remainingOptions);
-const twoOptions: OptionProps[] = [];
-
-const moveOption = () => {
-	twoOptions.push(
-		remainingOptions.splice(
-			Math.floor(Math.random() * remainingOptions.length),
-			1
-		)[0]
-	);
-};
-
-moveOption();
-moveOption();
-
 const CardList: React.FC<OptionListProps> = () => {
+	const cards = [...data];
+
+	const [winner, setWinner] = useState({
+		name: "",
+		image: "",
+		learnMoreLink: "",
+	});
+
+	// Generate two random cards
+	const [twoCards, setTwoCards] = useState([
+		cards[Math.floor(Math.random() * cards.length)],
+		cards[Math.floor(Math.random() * cards.length)],
+	]);
+
+	// Generate new two random cards if they're the same
+	while (twoCards[0] === twoCards[1]) {
+		twoCards[1] = cards[Math.floor(Math.random() * cards.length)];
+	}
+
+	const [remainingCards, setRemainingCards] = useState(
+		cards.filter((card) => !twoCards.includes(card))
+	);
+
+	const handleRestartClick = () => {
+		setTwoCards([
+			cards[Math.floor(Math.random() * cards.length)],
+			cards[Math.floor(Math.random() * cards.length)],
+		]);
+
+		while (twoCards[0] === twoCards[1]) {
+			twoCards[1] = cards[Math.floor(Math.random() * cards.length)];
+		}
+
+		setRemainingCards(cards.filter((card) => !twoCards.includes(card)));
+	};
+
+	// Generate remaining cards by filtering the initial twoCards
+
+	const handleCardClick = (card: OptionProps) => {
+		const updatedCards = remainingCards.filter(
+			(remainingCard) => remainingCard !== card
+		);
+		console.log(card.name, updatedCards);
+		setRemainingCards(updatedCards);
+		if (updatedCards.length === 0) {
+			setTwoCards([card]);
+		} else {
+			setTwoCards([
+				card,
+				remainingCards[
+					Math.floor(Math.random() * remainingCards.length)
+				],
+			]);
+		}
+	};
+
 	return (
 		<>
-			<h2>Choose between</h2>
+			<button onClick={() => handleRestartClick()}>Restart</button>
+			<h2>
+				{remainingCards.length === 0
+					? `${twoCards[0].name} has won!`
+					: `Choose... ${remainingCards.length} to go`}
+			</h2>
 			<div className={styles.CardList}>
-				{twoOptions.map((o, index) => (
+				{twoCards.map((o, index) => (
 					<Card
 						name={o.name}
 						image={o.image}
 						learnMoreLink={o.learnMoreLink}
 						key={index}
+						onClick={() => handleCardClick(o)}
 					/>
 				))}
 			</div>
-			<h2>Up next</h2>
-			<div className={styles.CardList}>
-				{remainingOptions.map((o, index) => (
-					<Card
-						name={o.name}
-						image={o.image}
-						learnMoreLink={o.learnMoreLink}
-						key={index}
-					/>
-				))}
-			</div>
+			{remainingCards.length === 0 ? (
+				""
+			) : (
+				<>
+					<h2>Up next</h2>
+					<div className={styles.CardList}>
+						{remainingCards.map((o, index) => (
+							<Card
+								name={o.name}
+								image={o.image}
+								learnMoreLink={o.learnMoreLink}
+								key={index}
+							/>
+						))}
+					</div>
+				</>
+			)}
 		</>
 	);
 };

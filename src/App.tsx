@@ -4,7 +4,6 @@ import CardList from "./components/CardList/CardList";
 import Footer from "./components/Footer/Footer";
 const App: React.FC = () => {
 	const [count, setCount] = useState(0);
-	const [todo, setTodo] = useState<string>("");
 
 	return (
 		<div className="App">
