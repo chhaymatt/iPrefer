@@ -92,12 +92,6 @@ const data = [
 const CardList: React.FC<OptionListProps> = () => {
 	const cards = [...data];
 
-	const [winner, setWinner] = useState({
-		name: "",
-		image: "",
-		learnMoreLink: "",
-	});
-
 	// Generate two random cards
 	const [twoCards, setTwoCards] = useState([
 		cards[Math.floor(Math.random() * cards.length)],
@@ -109,10 +103,12 @@ const CardList: React.FC<OptionListProps> = () => {
 		twoCards[1] = cards[Math.floor(Math.random() * cards.length)];
 	}
 
+	// Generate remaining cards by filtering the initial twoCards
 	const [remainingCards, setRemainingCards] = useState(
 		cards.filter((card) => !twoCards.includes(card))
 	);
 
+	// Restart cards
 	const handleRestartClick = () => {
 		setTwoCards([
 			cards[Math.floor(Math.random() * cards.length)],
@@ -126,22 +122,25 @@ const CardList: React.FC<OptionListProps> = () => {
 		setRemainingCards(cards.filter((card) => !twoCards.includes(card)));
 	};
 
-	// Generate remaining cards by filtering the initial twoCards
-
-	const handleCardClick = (card: OptionProps) => {
+	// Click a card
+	const handleCardClick = (card: OptionProps, index: number) => {
+		// Remove twoCards from remainingCards
 		const updatedCards = remainingCards.filter(
-			(remainingCard) => remainingCard !== card
+			(remainingCard) => !twoCards.includes(remainingCard)
 		);
-		console.log(card.name, updatedCards);
+
+		// Update remainingCards
 		setRemainingCards(updatedCards);
+
+		// Set only one card if there are no more remainingCards
 		if (updatedCards.length === 0) {
 			setTwoCards([card]);
 		} else {
+			// Remember clicked card position and generate a new card from remainingCards
+			const randomIndex = Math.floor(Math.random() * updatedCards.length);
 			setTwoCards([
-				card,
-				remainingCards[
-					Math.floor(Math.random() * remainingCards.length)
-				],
+				index === 0 ? card : updatedCards[randomIndex],
+				index === 0 ? updatedCards[randomIndex] : card,
 			]);
 		}
 	};
@@ -152,7 +151,9 @@ const CardList: React.FC<OptionListProps> = () => {
 			<h2>
 				{remainingCards.length === 0
 					? `${twoCards[0].name} has won!`
-					: `Choose... ${remainingCards.length} to go`}
+					: `Choose... ${remainingCards.length} more option${
+							remainingCards.length > 1 ? "s" : ""
+					  } to go`}
 			</h2>
 			<div className={styles.CardList}>
 				{twoCards.map((o, index) => (
@@ -161,7 +162,7 @@ const CardList: React.FC<OptionListProps> = () => {
 						image={o.image}
 						learnMoreLink={o.learnMoreLink}
 						key={index}
-						onClick={() => handleCardClick(o)}
+						onClick={() => handleCardClick(o, index)}
 					/>
 				))}
 			</div>
