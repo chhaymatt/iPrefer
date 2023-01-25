@@ -92,13 +92,13 @@ const data = [
 const CardList: React.FC<OptionListProps> = () => {
 	const cards = [...data];
 
-	// Generate two random cards
+	// Generate two random cards on load
 	const [twoCards, setTwoCards] = useState([
 		cards[Math.floor(Math.random() * cards.length)],
 		cards[Math.floor(Math.random() * cards.length)],
 	]);
 
-	// Generate new two random cards if they're the same
+	// Regenerate second card if they're the same
 	while (twoCards[0] === twoCards[1]) {
 		twoCards[1] = cards[Math.floor(Math.random() * cards.length)];
 	}
@@ -125,23 +125,28 @@ const CardList: React.FC<OptionListProps> = () => {
 	// Click a card
 	const handleCardClick = (card: OptionProps, index: number) => {
 		// Remove twoCards from remainingCards
-		const updatedCards = remainingCards.filter(
+		let updatedCards = remainingCards.filter(
 			(remainingCard) => !twoCards.includes(remainingCard)
 		);
-
-		// Update remainingCards
-		setRemainingCards(updatedCards);
 
 		// Set only one card if there are no more remainingCards
 		if (updatedCards.length === 0) {
 			setTwoCards([card]);
 		} else {
 			// Remember clicked card position and generate a new card from remainingCards
-			const randomIndex = Math.floor(Math.random() * updatedCards.length);
-			setTwoCards([
-				index === 0 ? card : updatedCards[randomIndex],
-				index === 0 ? updatedCards[randomIndex] : card,
-			]);
+			const randomCard =
+				updatedCards[Math.floor(Math.random() * updatedCards.length)];
+			const updatedTwoCards = [
+				index === 0 ? card : randomCard,
+				index === 0 ? randomCard : card,
+			];
+			// Update twoCards and remainingCards after generating a random card
+			setTwoCards(updatedTwoCards);
+			setRemainingCards(
+				updatedCards.filter(
+					(remainingCard) => !updatedTwoCards.includes(remainingCard)
+				)
+			);
 		}
 	};
 
