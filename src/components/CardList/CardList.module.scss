@@ -11,8 +11,9 @@ button {
 
 .CardList {
 	display: flex;
-	align-items: center;
+	align-items: space-evenly;
 	flex-wrap: wrap;
+	justify-content: center;
 }
 
 h2 {

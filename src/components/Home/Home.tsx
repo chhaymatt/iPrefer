@@ -1,11 +1,21 @@
+import { NavLink } from "react-router-dom";
 import styles from "./Home.module.scss";
 const Home = () => {
 	return (
 		<div className={styles.Container}>
+			<h3>What is iPrefer?</h3>
 			<p>
-				Welcome, get started by tapping one of the links in the
-				navigation.
+				iPrefer helps people make decisions quickly by showing two
+				options at a time, narrowing down the choices until the perfect
+				one is found.
 			</p>
+			<h3>Categories</h3>
+			<NavLink className={styles.Link} to="/iPrefer/games">
+				Games
+			</NavLink>
+			<NavLink className={styles.Link} to="/iPrefer/food">
+				Food
+			</NavLink>
 			<h3>Known Issues</h3>
 			<ul>
 				<li>

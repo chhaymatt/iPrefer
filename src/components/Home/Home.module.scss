@@ -3,8 +3,19 @@
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	padding: 3rem;
 }
 
 h3 {
-    margin-top: 1rem;
+	margin-top: 1rem;
+}
+
+.Link {
+    text-align: center;
+    margin: 1rem;
+    padding: 2rem 4rem;
+    width: 200px;
+    border-radius: 1rem;
+    border: 1px solid;
+
 }
