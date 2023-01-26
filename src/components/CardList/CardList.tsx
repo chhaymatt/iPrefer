@@ -18,7 +18,7 @@ const data = [
 	{
 		name: "Fortnite",
 		gif: "https://media2.giphy.com/media/EluFWEdnZtvqwZFTQH/giphy.gif?cid=ecf05e47vwlpu23b1ju0m0y4ji6vo2vc6c3obtf12ncehz0h&rid=giphy.gif&ct=g",
-		imagePop: "https://i.imgur.com/5Qb8qeh.png",
+		imagePop: "https://i.imgur.com/yMw5Zrc.png",
 		backgroundImage: "https://i.imgur.com/LVDzV84.png",
 		logo: "https://i.imgur.com/49cBs1z.png",
 		learnMoreLink: "https://www.epicgames.com/fortnite/en-US/",
@@ -58,7 +58,7 @@ const data = [
 	{
 		name: "Minecraft",
 		gif: "https://media3.giphy.com/media/HCLbhUDRzDxbUClyxl/giphy.gif?cid=ecf05e4738yrg17tul9c4rhj6vy3dqj3jc3rzjywu4phbo8x&rid=giphy.gif&ct=g",
-		imagePop: "https://i.imgur.com/ewMqnuK.png",
+		imagePop: "https://i.imgur.com/w9ulgCe.png",
 		backgroundImage: "https://i.imgur.com/UiuvuUH.jpg",
 		logo: "https://i.imgur.com/2YaoeEV.png",
 		learnMoreLink: "https://www.minecraft.net/en-us",

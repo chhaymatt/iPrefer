@@ -2,7 +2,7 @@
 	margin-top: 72px;
 	display: flex;
 	flex-direction: column;
-	align-items:center;
+	align-items: center;
 }
 
 button {
@@ -13,14 +13,9 @@ button {
 	display: flex;
 	align-items: center;
 	flex-wrap: wrap;
-	justify-content: center;
-	max-width: 95vw;
-	overflow: hidden;
 }
 
 h2 {
 	margin-bottom: 1rem;
-}
-.UpNext {
-	margin-top: 1rem;
+	text-align: center;
 }

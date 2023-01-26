@@ -1,10 +1,12 @@
+@use "../../styles/mixin";
+
 .Card {
 	display: flex;
 	align-items: center;
 	flex-direction: column;
 	justify-content: space-around;
 	width: 300px;
-	margin: 6rem;
+	margin: 5rem;
 	border-radius: 1rem;
 	border: 1px solid;
 	box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
@@ -13,6 +15,33 @@
 	background-size: cover;
 	user-select: none;
 
+	@include mixin.phone {
+		margin: 0.5rem;
+		margin-top: 2rem;
+		margin-bottom: 2rem;
+		width: 150px;
+		box-shadow: rgba(0, 0, 0, 0.3) 0px 5px 5px,
+			rgba(0, 0, 0, 0.22) 0px 10px 5px;
+	}
+
+	@include mixin.tablet {
+		margin: 3rem;
+		margin-top: 2rem;
+		margin-bottom: 2rem;
+		width: 200px;
+		box-shadow: rgba(0, 0, 0, 0.3) 0px 5px 5px,
+			rgba(0, 0, 0, 0.22) 0px 10px 5px;
+	}
+
+	@include mixin.tablet-landscape {
+		margin: 3rem;
+		margin-top: 2rem;
+		margin-bottom: 2rem;
+		width: 250px;
+		box-shadow: rgba(0, 0, 0, 0.3) 0px 5px 5px,
+			rgba(0, 0, 0, 0.22) 0px 10px 5px;
+	}
+
 	&__BackgroundImage {
 		width: 300px;
 		background-size: cover;
@@ -20,6 +49,16 @@
 		background-repeat: no-repeat;
 		border-top-left-radius: 1rem;
 		border-top-right-radius: 1rem;
+
+		@include mixin.phone {
+			width: 180px;
+		}
+		@include mixin.tablet {
+			width: 200px;
+		}
+		@include mixin.tablet-landscape {
+			width: 250px;
+		}
 	}
 
 	&__ImagePop {
@@ -29,6 +68,24 @@
 		left: -5rem;
 		top: -4rem;
 		object-fit: scale-down;
+
+		@include mixin.phone {
+			width: 200px;
+			left: -1rem;
+			top: -1rem;
+		}
+
+		@include mixin.tablet {
+			width: 300px;
+			left: -3rem;
+			top: -3rem;
+		}
+
+		@include mixin.tablet-landscape {
+			width: 350px;
+			left: -3rem;
+			top: -3rem;
+		}
 	}
 
 	&__Logo {
@@ -48,6 +105,19 @@
 	&__Name {
 		font-size: 2rem;
 		color: white;
+		text-align: center;
+
+		@include mixin.phone {
+			font-size: 1rem;
+		}
+
+		@include mixin.tablet {
+			font-size: 1.25rem;
+		}
+
+		@include mixin.tablet-landscape {
+			font-size: 1.5rem;
+		}
 	}
 
 	&__Info {
@@ -71,5 +141,11 @@
 		box-shadow: rgba(255, 255, 255, 0.3) 0px 19px 38px,
 			rgba(255, 255, 255, 0.22) 0px 15px 12px;
 		transform: scale(1.1);
+
+		@include mixin.phone {
+			transform: scale(1.05);
+			box-shadow: rgba(255, 255, 255, 0.3) 0px 5px 5px,
+				rgba(255, 255, 255, 0.22) 0px 10px 5px;
+		}
 	}
 }
