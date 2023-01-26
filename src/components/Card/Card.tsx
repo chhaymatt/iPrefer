@@ -4,14 +4,32 @@ import { OptionProps } from "../../interfaces/OptionProps";
 
 const Card: React.FC<OptionProps> = ({
 	name,
-	image,
+	gif,
+	imagePop,
+	backgroundImage,
+	logo,
 	learnMoreLink,
 	onClick,
 }) => {
 	return (
 		<div className={styles.Card} onClick={onClick}>
-			<h3>{name}</h3>
-			<img className={styles.Card__Image} src={image} alt={name} />
+			<div
+				className={styles.Card__BackgroundImage}
+				style={{
+					backgroundImage: `url(${backgroundImage})`,
+				}}>
+				<img
+					className={styles.Card__ImagePop}
+					src={imagePop}
+					alt={name}
+				/>
+			</div>
+			<h3 className={styles.Card__Name}>{name}</h3>
+			<div
+				className={styles.Card__Logo}
+				style={{
+					backgroundImage: `url(${logo})`,
+				}}></div>
 			{/* <a
 				className={styles.Card__LearnMore}
 				target="_blank"

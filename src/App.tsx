@@ -7,7 +7,6 @@ const App: React.FC = () => {
 
 	return (
 		<div className="App">
-			<h1>iPrefer</h1>
 			<CardList options={[]} />
 			<Footer />
 		</div>

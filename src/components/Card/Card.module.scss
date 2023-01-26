@@ -4,19 +4,38 @@
 	flex-direction: column;
 	justify-content: space-around;
 	width: 300px;
-	margin: 10px;
-	padding: 1rem;
+	margin: 5rem;
 	border-radius: 1rem;
 	border: 1px solid;
-	background-color: rgb(114, 114, 114);
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+	box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
+		rgba(0, 0, 0, 0.22) 0px 15px 12px;
 	transition: 0.3s;
 
-	&__Image {
-		height: 300px;
+	&__BackgroundImage {
 		width: 300px;
-		object-fit: cover;
-		border-radius: 0.5rem;
+		background-size: cover;
+		background-position: center;
+		background-repeat: no-repeat;
+		border-top-left-radius: 1rem;
+		border-top-right-radius: 1rem;
+	}
+
+	&__ImagePop {
+		position: relative;
+		width: 450px;
+		height: 300px;
+		left: -5rem;
+		top: -4rem;
+		object-fit: scale-down;
+	}
+
+	&__Logo {
+		width: 5rem;
+		height: 5rem;
+		background-size: contain;
+		background-position: center;
+		background-repeat: no-repeat;
+		filter: brightness(0) invert(1);
 	}
 
 	&__LearnMore {
@@ -24,9 +43,15 @@
 		background-color: white;
 	}
 
+	&__Name {
+		font-size: 2rem;
+		font-weight: bold;
+	}
+
 	&:hover {
-		background-color: rgb(135, 135, 135);
 		cursor: pointer;
-		box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 1);
+		box-shadow: rgba(255, 255, 255, 0.3) 0px 19px 38px,
+			rgba(255, 255, 255, 0.22) 0px 15px 12px;
+		transform: scale(1.1);
 	}
 }
