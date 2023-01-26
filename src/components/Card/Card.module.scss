@@ -4,12 +4,14 @@
 	flex-direction: column;
 	justify-content: space-around;
 	width: 300px;
-	margin: 5rem;
+	margin: 6rem;
 	border-radius: 1rem;
 	border: 1px solid;
 	box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
 		rgba(0, 0, 0, 0.22) 0px 15px 12px;
 	transition: 0.3s;
+	background-size: cover;
+	user-select: none;
 
 	&__BackgroundImage {
 		width: 300px;
@@ -45,7 +47,23 @@
 
 	&__Name {
 		font-size: 2rem;
-		font-weight: bold;
+		color: white;
+	}
+
+	&__Info {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		width: 100%;
+		border-bottom-left-radius: 1rem;
+		border-bottom-right-radius: 1rem;
+		background: rgb(0, 0, 0);
+		background: linear-gradient(
+			0deg,
+			rgba(0, 0, 0, 1) 0%,
+			rgba(255, 255, 255, 0) 100%
+		);
 	}
 
 	&:hover {

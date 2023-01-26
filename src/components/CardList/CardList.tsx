@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "./CardList.module.scss";
 import { OptionProps } from "../../interfaces/OptionProps";
 import Card from "../Card/Card";
@@ -178,8 +178,8 @@ const CardList: React.FC<OptionListProps> = () => {
 	useEffect(() => {
 		if (twoCards.length === 1) {
 			setMessage({
-				main: `The winner is ${twoCards[0].name}!`,
-				secondary: ``,
+				main: `I prefer ${twoCards[0].name}!`,
+				secondary: `Want to try again? Press the Restart button.`,
 			});
 		}
 		if (remainingCards.length > 1) {
@@ -205,7 +205,7 @@ const CardList: React.FC<OptionListProps> = () => {
 	}, [remainingCards]);
 
 	return (
-		<>
+		<div className={styles.Container}>
 			<button onClick={() => handleRestartClick()}>Restart</button>
 			<h2>{message.main}</h2>
 			<h3>{message.secondary}</h3>
@@ -228,14 +228,14 @@ const CardList: React.FC<OptionListProps> = () => {
 			) : (
 				<>
 					<h2>Up next</h2>
-					<ul>
+					<ul className={styles.UpNext}>
 						{remainingCards.map((o, index) => (
-							<li>{o.name}</li>
+							<li key={index}>{o.name}</li>
 						))}
 					</ul>
 				</>
 			)}
-		</>
+		</div>
 	);
 };
 
