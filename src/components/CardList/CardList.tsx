@@ -108,6 +108,9 @@ const data = [
 const CardList: React.FC<OptionListProps> = () => {
 	const cards = [...data];
 
+	// Generate message
+	const [message, setMessage] = useState({ main: "", secondary: "" });
+
 	// Generate two random cards on load
 	const [twoCards, setTwoCards] = useState([
 		cards[Math.floor(Math.random() * cards.length)],
@@ -126,16 +129,21 @@ const CardList: React.FC<OptionListProps> = () => {
 
 	// Restart cards
 	const handleRestartClick = () => {
-		setTwoCards([
+		const updatedTwoCards = [
 			cards[Math.floor(Math.random() * cards.length)],
 			cards[Math.floor(Math.random() * cards.length)],
-		]);
+		];
 
-		while (twoCards[0] === twoCards[1]) {
-			twoCards[1] = cards[Math.floor(Math.random() * cards.length)];
+		while (updatedTwoCards[0] === updatedTwoCards[1]) {
+			updatedTwoCards[1] =
+				cards[Math.floor(Math.random() * cards.length)];
 		}
 
-		setRemainingCards(cards.filter((card) => !twoCards.includes(card)));
+		setTwoCards(updatedTwoCards);
+
+		setRemainingCards(
+			cards.filter((card) => !updatedTwoCards.includes(card))
+		);
 	};
 
 	// Click a card
@@ -145,37 +153,62 @@ const CardList: React.FC<OptionListProps> = () => {
 			(remainingCard) => !twoCards.includes(remainingCard)
 		);
 
+		// Remember clicked card position and generate a new card from remainingCards
+		const randomCard =
+			updatedCards[Math.floor(Math.random() * updatedCards.length)];
+		const updatedTwoCards = [
+			index === 0 ? card : randomCard,
+			index === 0 ? randomCard : card,
+		];
+
+		// Update twoCards and remainingCards after generating a random card
+		setTwoCards(updatedTwoCards);
+		setRemainingCards(
+			updatedCards.filter(
+				(remainingCard) => !updatedTwoCards.includes(remainingCard)
+			)
+		);
+
 		// Set only one card if there are no more remainingCards
 		if (updatedCards.length === 0) {
 			setTwoCards([card]);
-		} else {
-			// Remember clicked card position and generate a new card from remainingCards
-			const randomCard =
-				updatedCards[Math.floor(Math.random() * updatedCards.length)];
-			const updatedTwoCards = [
-				index === 0 ? card : randomCard,
-				index === 0 ? randomCard : card,
-			];
-			// Update twoCards and remainingCards after generating a random card
-			setTwoCards(updatedTwoCards);
-			setRemainingCards(
-				updatedCards.filter(
-					(remainingCard) => !updatedTwoCards.includes(remainingCard)
-				)
-			);
 		}
 	};
+
+	useEffect(() => {
+		if (twoCards.length === 1) {
+			setMessage({
+				main: `The winner is ${twoCards[0].name}!`,
+				secondary: ``,
+			});
+		}
+		if (remainingCards.length > 1) {
+			setMessage({
+				main: `Choose ${twoCards[0].name} or ${twoCards[1].name}.`,
+				secondary: `${remainingCards.length} more options to go.`,
+			});
+		}
+
+		if (remainingCards.length === 1) {
+			setMessage({
+				main: `Choose ${twoCards[0].name} or ${twoCards[1].name}.`,
+				secondary: `${remainingCards.length} more option to go.`,
+			});
+		}
+
+		if (remainingCards.length === 0 && twoCards.length > 1) {
+			setMessage({
+				main: `Choose ${twoCards[0].name} or ${twoCards[1].name}.`,
+				secondary: `Last option.`,
+			});
+		}
+	}, [remainingCards]);
 
 	return (
 		<>
 			<button onClick={() => handleRestartClick()}>Restart</button>
-			<h2>
-				{remainingCards.length === 0
-					? `${twoCards[0].name} has won!`
-					: `Choose... ${remainingCards.length} more option${
-							remainingCards.length > 1 ? "s" : ""
-					  } to go`}
-			</h2>
+			<h2>{message.main}</h2>
+			<h3>{message.secondary}</h3>
 			<div className={styles.CardList}>
 				{twoCards.map((o, index) => (
 					<Card
@@ -195,19 +228,11 @@ const CardList: React.FC<OptionListProps> = () => {
 			) : (
 				<>
 					<h2>Up next</h2>
-					<div className={styles.CardList}>
+					<ul>
 						{remainingCards.map((o, index) => (
-							<Card
-								name={o.name}
-								gif={o.gif}
-								imagePop={o.imagePop}
-								backgroundImage={o.backgroundImage}
-								logo={o.logo}
-								learnMoreLink={o.learnMoreLink}
-								key={index}
-							/>
+							<li>{o.name}</li>
 						))}
-					</div>
+					</ul>
 				</>
 			)}
 		</>
