@@ -10,6 +10,7 @@ const Home = () => {
 				one is found.
 			</p>
 			<h3>Categories</h3>
+            <p>Get started by clicking on one of the categories below.</p>
 			<NavLink className={styles.Link} to="/iPrefer/games">
 				Games
 			</NavLink>
