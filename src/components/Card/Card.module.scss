@@ -106,7 +106,7 @@
 		font-size: 2rem;
 		color: white;
 		text-align: center;
-
+		max-height: 2rem;
 		@include mixin.phone {
 			font-size: 1rem;
 		}
