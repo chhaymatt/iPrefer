@@ -8,8 +8,8 @@ interface OptionListProps {
 	options: OptionProps[];
 }
 
-const CardList: React.FC<OptionListProps> = () => {
-	const cards = [...games];
+const CardList: React.FC<OptionListProps> = ({ options }: OptionListProps) => {
+	const cards = [...options];
 
 	// Generate message
 	const [message, setMessage] = useState({ main: "", secondary: "" });
