@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
-import CardList from "./components/CardList/CardList";
+import Container from "./components/Container/Container";
 import Footer from "./components/Footer/Footer";
 import Home from "./components/Home/Home";
 import Nav from "./components/Nav/Nav";
@@ -15,10 +15,10 @@ const App: React.FC = () => {
 				<Route path="/" element={<Home />}></Route>
 				<Route
 					path="/games"
-					element={<CardList key="games" options={games} />}></Route>
+					element={<Container key="games" options={games} />}></Route>
 				<Route
 					path="/food"
-					element={<CardList key="food" options={food} />}></Route>
+					element={<Container key="food" options={food} />}></Route>
 			</Routes>
 
 			<Footer />

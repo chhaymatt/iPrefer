@@ -1,16 +1,3 @@
-.Container {
-	margin-top: 72px;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	width: 100%;
-	overflow: hidden;
-}
-
-button {
-	margin: 1rem;
-}
-
 .CardList {
 	display: flex;
 	align-items: center;
@@ -20,9 +7,4 @@ button {
 	margin-top: 2rem;
 	width: 100%;
 	padding-bottom: 4rem;
-}
-
-h2 {
-	margin: 1rem;
-	text-align: center;
 }

@@ -1,5 +1,5 @@
 import styles from "./Card.module.scss";
-import { OptionProps } from "../../interfaces/OptionProps";
+import { OptionProps } from "../../interfaces/props";
 
 const Card: React.FC<OptionProps> = ({
 	name,
