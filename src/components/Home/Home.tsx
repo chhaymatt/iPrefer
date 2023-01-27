@@ -13,16 +13,15 @@ const Home = () => {
 			<br></br>
 			<h2>Categories</h2>
 			<p>Get started by clicking on a category below.</p>
-			<NavLink className={styles.Link} to="/iPrefer/games">
+			<NavLink className={styles.Link} to="/games">
 				Games
 			</NavLink>
-			<NavLink className={styles.Link} to="/iPrefer/food">
+			<NavLink className={styles.Link} to="/food">
 				Food
 			</NavLink>
-			<h2>Known Issues</h2>
+			{/* <h2>Known Issues</h2>
 			<ul>
-				<li>Refreshing the page will result in 404 Not Found.</li>
-			</ul>
+			</ul> */}
 		</div>
 	);
 };

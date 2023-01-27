@@ -12,12 +12,12 @@ const App: React.FC = () => {
 		<div className="App">
 			<Nav />
 			<Routes>
-				<Route path="/iPrefer" element={<Home />}></Route>
+				<Route path="/" element={<Home />}></Route>
 				<Route
-					path="/iPrefer/games"
+					path="/games"
 					element={<CardList key="games" options={games} />}></Route>
 				<Route
-					path="/iPrefer/food"
+					path="/food"
 					element={<CardList key="food" options={food} />}></Route>
 			</Routes>
 

@@ -12,7 +12,7 @@ const Nav = () => {
 					className={({ isActive }) =>
 						isActive ? styles.Active : styles.Link
 					}
-					to="/iPrefer"
+					to="/"
 					end>
 					iPrefer
 				</NavLink>
@@ -20,14 +20,14 @@ const Nav = () => {
 					className={({ isActive }) =>
 						isActive ? styles.Active : styles.Link
 					}
-					to="/iPrefer/games">
+					to="/games">
 					Games
 				</NavLink>
 				<NavLink
 					className={({ isActive }) =>
 						isActive ? styles.Active : styles.Link
 					}
-					to="/iPrefer/food">
+					to="/food">
 					Food
 				</NavLink>
 			</div>
