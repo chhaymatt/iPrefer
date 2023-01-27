@@ -10,19 +10,23 @@ interface OptionListProps {
 const CardList: React.FC<OptionListProps> = ({ options }: OptionListProps) => {
 	const cards = [...options];
 
+	// Get unique cards
+	const getUniqueCards = (array: Array<OptionProps>) => {
+		const firstCard = array[Math.floor(Math.random() * array.length)];
+		let secondCard = array[Math.floor(Math.random() * array.length)];
+
+		while (firstCard === secondCard) {
+			secondCard = array[Math.floor(Math.random() * array.length)];
+		}
+
+		return [firstCard, secondCard];
+	};
+
 	// Generate message
 	const [message, setMessage] = useState({ main: "", secondary: "" });
 
 	// Generate two random cards on load
-	const [twoCards, setTwoCards] = useState([
-		cards[Math.floor(Math.random() * cards.length)],
-		cards[Math.floor(Math.random() * cards.length)],
-	]);
-
-	// Regenerate second card if they're the same
-	while (twoCards[0] === twoCards[1]) {
-		twoCards[1] = cards[Math.floor(Math.random() * cards.length)];
-	}
+	const [twoCards, setTwoCards] = useState(() => getUniqueCards(cards));
 
 	// Generate remaining cards by filtering the initial twoCards
 	const [remainingCards, setRemainingCards] = useState(
@@ -31,21 +35,9 @@ const CardList: React.FC<OptionListProps> = ({ options }: OptionListProps) => {
 
 	// Restart cards
 	const handleRestartClick = () => {
-		const updatedTwoCards = [
-			cards[Math.floor(Math.random() * cards.length)],
-			cards[Math.floor(Math.random() * cards.length)],
-		];
-
-		while (updatedTwoCards[0] === updatedTwoCards[1]) {
-			updatedTwoCards[1] =
-				cards[Math.floor(Math.random() * cards.length)];
-		}
-
-		setTwoCards(updatedTwoCards);
-
-		setRemainingCards(
-			cards.filter((card) => !updatedTwoCards.includes(card))
-		);
+		const newTwoCards = getUniqueCards(cards);
+		setTwoCards(newTwoCards);
+		setRemainingCards(cards.filter((card) => !newTwoCards.includes(card)));
 	};
 
 	// Click a card
@@ -86,21 +78,21 @@ const CardList: React.FC<OptionListProps> = ({ options }: OptionListProps) => {
 		}
 		if (remainingCards.length > 1) {
 			setMessage({
-				main: `Choose ${twoCards[0].name} or ${twoCards[1].name}.`,
+				main: `${twoCards[0].name} or ${twoCards[1].name}?`,
 				secondary: `${remainingCards.length} more options to go.`,
 			});
 		}
 
 		if (remainingCards.length === 1) {
 			setMessage({
-				main: `Choose ${twoCards[0].name} or ${twoCards[1].name}.`,
+				main: `${twoCards[0].name} or ${twoCards[1].name}?`,
 				secondary: `${remainingCards.length} more option to go.`,
 			});
 		}
 
 		if (remainingCards.length === 0 && twoCards.length > 1) {
 			setMessage({
-				main: `Choose ${twoCards[0].name} or ${twoCards[1].name}.`,
+				main: `${twoCards[0].name} or ${twoCards[1].name}?`,
 				secondary: `Last option.`,
 			});
 		}
