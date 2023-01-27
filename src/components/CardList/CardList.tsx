@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import styles from "./CardList.module.scss";
 import { OptionProps } from "../../interfaces/OptionProps";
 import Card from "../Card/Card";
-import games from "../../services/games";
 
 interface OptionListProps {
 	options: OptionProps[];

@@ -15,10 +15,10 @@ const App: React.FC = () => {
 				<Route path="/iPrefer" element={<Home />}></Route>
 				<Route
 					path="/iPrefer/games"
-					element={<CardList options={games} />}></Route>
+					element={<CardList key="games" options={games} />}></Route>
 				<Route
 					path="/iPrefer/food"
-					element={<CardList options={food} />}></Route>
+					element={<CardList key="food" options={food} />}></Route>
 			</Routes>
 
 			<Footer />

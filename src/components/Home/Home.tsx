@@ -19,13 +19,11 @@ const Home = () => {
 			<NavLink className={styles.Link} to="/iPrefer/food">
 				Food
 			</NavLink>
-			<h2>Known Issues</h2>
+			{/* <h2>Known Issues</h2>
 			<ul>
 				<li>
-					Unable to switch between Games or Food unless you go back to
-					the homepage (iPrefer).
 				</li>
-			</ul>
+			</ul> */}
 		</div>
 	);
 };
