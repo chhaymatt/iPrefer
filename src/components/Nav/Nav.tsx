@@ -1,16 +1,31 @@
 import { NavLink } from "react-router-dom";
 import styles from "./Nav.module.scss";
 
+// Notes
+// For the home link, it requires end attribute
 const Nav = () => {
 	return (
 		<nav className={styles.Nav}>
-			<NavLink to="/iPrefer" className={styles.Link}>
+			<NavLink
+				className={({ isActive }) =>
+					isActive ? styles.Active : styles.Link
+				}
+				to="/iPrefer"
+				end>
 				iPrefer
 			</NavLink>
-			<NavLink className={styles.Link} to="/iPrefer/games">
+			<NavLink
+				className={({ isActive }) =>
+					isActive ? styles.Active : styles.Link
+				}
+				to="/iPrefer/games">
 				Games
 			</NavLink>
-			<NavLink className={styles.Link} to="/iPrefer/food">
+			<NavLink
+				className={({ isActive }) =>
+					isActive ? styles.Active : styles.Link
+				}
+				to="/iPrefer/food">
 				Food
 			</NavLink>
 		</nav>

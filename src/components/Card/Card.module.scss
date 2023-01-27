@@ -4,87 +4,25 @@
 	display: flex;
 	align-items: center;
 	flex-direction: column;
-	width: 300px;
-	margin: 5rem;
+	width: 40%;
+	margin: 2%;
 	border-radius: 1rem;
 	border: 1px solid;
 	box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
 		rgba(0, 0, 0, 0.22) 0px 15px 12px;
 	transition: 0.3s;
-	background-size: cover;
 	user-select: none;
-
-	@include mixin.phone {
-		margin: 0.1rem;
-		margin-top: 2rem;
-		margin-bottom: 2rem;
-		width: 180px;
-		box-shadow: rgba(0, 0, 0, 0.3) 0px 5px 5px,
-			rgba(0, 0, 0, 0.22) 0px 10px 5px;
-	}
-
-	@include mixin.tablet {
-		margin: 3rem;
-		margin-top: 2rem;
-		margin-bottom: 2rem;
-		width: 200px;
-		box-shadow: rgba(0, 0, 0, 0.3) 0px 5px 5px,
-			rgba(0, 0, 0, 0.22) 0px 10px 5px;
-	}
-
-	@include mixin.tablet-landscape {
-		margin: 2rem;
-		margin-top: 2rem;
-		margin-bottom: 2rem;
-		width: 300px;
-		box-shadow: rgba(0, 0, 0, 0.3) 0px 5px 5px,
-			rgba(0, 0, 0, 0.22) 0px 10px 5px;
-	}
-
-	&__BackgroundImage {
-		width: 300px;
-		background-size: cover;
-		background-position: center;
-		background-repeat: no-repeat;
-		border-top-left-radius: 1rem;
-		border-top-right-radius: 1rem;
-
-		@include mixin.phone {
-			width: 180px;
-		}
-		@include mixin.tablet {
-			width: 200px;
-		}
-		@include mixin.tablet-landscape {
-			width: 250px;
-		}
-	}
+	background-position-x: center;
+	background-repeat: no-repeat;
+	background-size: cover;
 
 	&__ImagePop {
 		position: relative;
-		width: 450px;
+		width: 150%;
 		height: 300px;
-		left: -5rem;
-		top: -4rem;
+		left: -25%;
+		top: -3rem;
 		object-fit: scale-down;
-
-		@include mixin.phone {
-			width: 200px;
-			left: -1rem;
-			top: -1rem;
-		}
-
-		@include mixin.tablet {
-			width: 300px;
-			left: -3rem;
-			top: -3rem;
-		}
-
-		@include mixin.tablet-landscape {
-			width: 350px;
-			left: -3rem;
-			top: -3rem;
-		}
 	}
 
 	&__Logo {
@@ -106,7 +44,8 @@
 		font-size: 2rem;
 		color: white;
 		text-align: center;
-		max-height: 2rem;
+		height: 2rem;
+
 		@include mixin.phone {
 			font-size: 1rem;
 		}
