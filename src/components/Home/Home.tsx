@@ -3,25 +3,27 @@ import styles from "./Home.module.scss";
 const Home = () => {
 	return (
 		<div className={styles.Container}>
-			<h3>What is iPrefer?</h3>
+			<h1>iPrefer</h1>
+			<h2>What is iPrefer?</h2>
 			<p>
 				iPrefer helps people make decisions quickly by showing two
 				options at a time, narrowing down the choices until the perfect
 				one is found.
 			</p>
-			<h3>Categories</h3>
-            <p>Get started by clicking on one of the categories below.</p>
+			<br></br>
+			<h2>Categories</h2>
+			<p>Get started by clicking on a category below.</p>
 			<NavLink className={styles.Link} to="/iPrefer/games">
 				Games
 			</NavLink>
 			<NavLink className={styles.Link} to="/iPrefer/food">
 				Food
 			</NavLink>
-			<h3>Known Issues</h3>
+			<h2>Known Issues</h2>
 			<ul>
 				<li>
 					Unable to switch between Games or Food unless you go back to
-					the homepage (iPrefer)
+					the homepage (iPrefer).
 				</li>
 			</ul>
 		</div>
