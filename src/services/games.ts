@@ -10,7 +10,7 @@ const games = [
 	{
 		name: "Astroneer",
 		gif: "https://media.tenor.com/pA5ZvEn_SiIAAAAC/astroneer-astronaut.gif",
-		imagePop: "https://i.imgur.com/A8eIKcz.png",
+		imagePop: "https://i.imgur.com/AlaoHEJ.png",
 		backgroundImage: "https://i.imgur.com/ddPOnuq.png",
 		logo: "https://i.imgur.com/NYxZ3Ur.png",
 		learnMoreLink: "https://astroneer.space/",
@@ -26,7 +26,7 @@ const games = [
 	{
 		name: "Counter-Strike: Global Offensive",
 		gif: "https://i.imgur.com/QkPGZzg.gif",
-		imagePop: "https://i.imgur.com/i9JtYUk.png",
+		imagePop: "https://i.imgur.com/Re4asHg.png",
 		backgroundImage: "https://i.imgur.com/qOXZUe0.png",
 		logo: "https://i.imgur.com/QRVVYvB.png",
 		learnMoreLink: "https://blog.counter-strike.net/",
@@ -34,7 +34,7 @@ const games = [
 	{
 		name: "Dead by Daylight",
 		gif: "https://media1.giphy.com/media/JmsU3a2B7IGwxpEqHR/giphy.gif?cid=ecf05e47zlycj5xmpeywvvp2o4m690xwqd552quuow8d60ys&rid=giphy.gif&ct=g",
-		imagePop: "https://i.imgur.com/7fkkmGd.png",
+		imagePop: "https://i.imgur.com/U5KB3Uh.png",
 		backgroundImage: "https://i.imgur.com/7e8wAIG.png",
 		logo: "https://i.imgur.com/eLRRYIk.png",
 		learnMoreLink: "https://deadbydaylight.com/",
@@ -42,7 +42,7 @@ const games = [
 	{
 		name: "Fortnite",
 		gif: "https://media2.giphy.com/media/EluFWEdnZtvqwZFTQH/giphy.gif?cid=ecf05e47vwlpu23b1ju0m0y4ji6vo2vc6c3obtf12ncehz0h&rid=giphy.gif&ct=g",
-		imagePop: "https://i.imgur.com/uo4ya1K.png",
+		imagePop: "https://i.imgur.com/0OhdBqE.png",
 		backgroundImage: "https://i.imgur.com/r7aoTj8.png",
 		logo: "https://i.imgur.com/FEdSqsN.png",
 		learnMoreLink: "https://www.epicgames.com/fortnite/en-US/",
@@ -83,7 +83,7 @@ const games = [
 	{
 		name: "PlateUp!",
 		gif: "https://i.imgur.com/G7PedTT.gif",
-		imagePop: "https://i.imgur.com/NSBbZs3.png",
+		imagePop: "https://i.imgur.com/tABge2U.png",
 		backgroundImage: "https://i.imgur.com/ueJ795F.jpg",
 		logo: "https://i.imgur.com/vuUShLP.png",
 		learnMoreLink: "https://www.plateupgame.com/",
@@ -91,7 +91,7 @@ const games = [
 	{
 		name: "Propnight",
 		gif: "https://i.imgur.com/FrsGmYN.gif",
-		imagePop: "https://i.imgur.com/6ZYL1hN.png",
+		imagePop: "https://i.imgur.com/R6OxQrE.png",
 		backgroundImage: "https://i.imgur.com/W6ksMkK.jpg",
 		logo: "https://i.imgur.com/Wntb6vt.png",
 		learnMoreLink: "https://www.propnight.com/",
@@ -99,8 +99,8 @@ const games = [
 	{
 		name: "Raft",
 		gif: "https://media.tenor.com/DeRaWfAyU5IAAAAC/shark-raft.gif",
-		imagePop: "https://i.imgur.com/oUHNE8t.png",
-		backgroundImage: "https://i.imgur.com/XMHzPCP.png",
+		imagePop: "https://i.imgur.com/kdmC5Xk.png",
+		backgroundImage: "https://i.imgur.com/0Ds1zdx.png",
 		logo: "https://i.imgur.com/Ldf96Xs.png",
 		learnMoreLink: "https://raft-game.com/",
 	},
@@ -123,7 +123,7 @@ const games = [
 	{
 		name: "Rust",
 		gif: "https://media3.giphy.com/media/ENcUVunGzRnrCBmua0/giphy.gif?cid=ecf05e471gi9dh08r4z2o4ezay4aj5uzikmccnw13djegg2t&rid=giphy.gif&ct=g",
-		imagePop: "https://i.imgur.com/sNJndV4.png",
+		imagePop: "https://i.imgur.com/7Idju4Z.png",
 		backgroundImage: "https://i.imgur.com/jiB8kkS.jpg",
 		logo: "https://i.imgur.com/xv09BJI.png",
 		learnMoreLink: "https://rust.facepunch.com/",
@@ -131,7 +131,7 @@ const games = [
 	{
 		name: "Stardew Valley",
 		gif: "https://media2.giphy.com/media/ecNN1uKqgRaKs/giphy.gif?cid=ecf05e473sedlxv9erym4axxpenvwoq3sn98xalj56hxgkad&rid=giphy.gif&ct=g",
-		imagePop: "https://i.imgur.com/NHx9xaR.png",
+		imagePop: "https://i.imgur.com/4gYUvuA.png",
 		backgroundImage: "https://i.imgur.com/wELWr0o.png",
 		logo: "https://i.imgur.com/05aEKAx.png",
 		learnMoreLink: "https://www.stardewvalley.net/",

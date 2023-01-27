@@ -125,6 +125,16 @@ const CardList: React.FC<OptionListProps> = ({ options }: OptionListProps) => {
 					<ul className={styles.UpNext}>
 						{remainingCards.map((o, index) => (
 							<li key={index}>{o.name}</li>
+							// <Card
+							// 	name={o.name}
+							// 	gif={o.gif}
+							// 	imagePop={o.imagePop}
+							// 	backgroundImage={o.backgroundImage}
+							// 	logo={o.logo}
+							// 	learnMoreLink={o.learnMoreLink}
+							// 	key={index}
+							// 	onClick={() => handleCardClick(o, index)}
+							// />
 						))}
 					</ul>
 				</>

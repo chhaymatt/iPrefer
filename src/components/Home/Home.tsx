@@ -19,11 +19,10 @@ const Home = () => {
 			<NavLink className={styles.Link} to="/iPrefer/food">
 				Food
 			</NavLink>
-			{/* <h2>Known Issues</h2>
+			<h2>Known Issues</h2>
 			<ul>
-				<li>
-				</li>
-			</ul> */}
+				<li>Refreshing the page will result in 404 Not Found.</li>
+			</ul>
 		</div>
 	);
 };

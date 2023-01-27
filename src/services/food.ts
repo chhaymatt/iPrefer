@@ -66,7 +66,7 @@ const food = [
 	{
 		name: "Oporto",
 		gif: "",
-		imagePop: "https://i.imgur.com/F6bK4Jl.png",
+		imagePop: "https://i.imgur.com/gKheFpT.png",
 		backgroundImage: "https://i.imgur.com/lchylND.jpg",
 		logo: "https://i.imgur.com/H2iE75I.png",
 		learnMoreLink: "",
@@ -90,7 +90,7 @@ const food = [
 	{
 		name: "Grill'd",
 		gif: "",
-		imagePop: "https://i.imgur.com/EYY9ZEN.png",
+		imagePop: "https://i.imgur.com/5xEONFv.png",
 		backgroundImage: "https://i.imgur.com/pfQGf7i.jpg",
 		logo: "https://i.imgur.com/8V7ygXm.png",
 		learnMoreLink: "",
