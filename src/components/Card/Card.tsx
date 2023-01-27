@@ -33,12 +33,6 @@ const Card: React.FC<OptionProps> = ({
 						backgroundImage: `url(${logo})`,
 					}}></div>
 			</div>
-			{/* <a
-				className={styles.Card__LearnMore}
-				target="_blank"
-				href={learnMoreLink}>
-				Learn more about {name}
-			</a> */}
 		</div>
 	);
 };
