@@ -1,5 +1,5 @@
 export interface OptionProps {
-	name: string;
+	label: string;
 	gif: string;
 	imagePop: string;
 	backgroundImage: string;

@@ -7,7 +7,7 @@ const CardList: React.FC<CardListProps> = ({ cards, handleCardClick }) => {
 		<div className={styles.CardList}>
 			{cards.map((o, index) => (
 				<Card
-					name={o.name}
+					label={o.label}
 					gif={o.gif}
 					imagePop={o.imagePop}
 					backgroundImage={o.backgroundImage}

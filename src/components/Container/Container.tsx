@@ -2,6 +2,8 @@ import styles from "./Container.module.scss";
 import { useEffect, useState } from "react";
 import { OptionListProps, OptionProps } from "../../interfaces/props";
 import CardList from "../CardList/CardList";
+import Select from "react-select";
+import makeAnimated from "react-select/animated";
 
 const Container: React.FC<OptionListProps> = ({ options }: OptionListProps) => {
 	// Get unique cards
@@ -60,27 +62,27 @@ const Container: React.FC<OptionListProps> = ({ options }: OptionListProps) => {
 	useEffect(() => {
 		if (twoCards.length === 1) {
 			setMessage({
-				main: `I prefer ${twoCards[0].name}!`,
+				main: `I prefer ${twoCards[0].label}!`,
 				secondary: `Want to try again? Press the Restart button.`,
 			});
 		}
 		if (remainingCards.length > 1) {
 			setMessage({
-				main: `${twoCards[0].name} or ${twoCards[1].name}?`,
+				main: `${twoCards[0].label} or ${twoCards[1].label}?`,
 				secondary: `${remainingCards.length} more options to go.`,
 			});
 		}
 
 		if (remainingCards.length === 1) {
 			setMessage({
-				main: `${twoCards[0].name} or ${twoCards[1].name}?`,
+				main: `${twoCards[0].label} or ${twoCards[1].label}?`,
 				secondary: `${remainingCards.length} more option to go.`,
 			});
 		}
 
 		if (remainingCards.length === 0 && twoCards.length > 1) {
 			setMessage({
-				main: `${twoCards[0].name} or ${twoCards[1].name}?`,
+				main: `${twoCards[0].label} or ${twoCards[1].label}?`,
 				secondary: `Last option.`,
 			});
 		}
@@ -88,6 +90,14 @@ const Container: React.FC<OptionListProps> = ({ options }: OptionListProps) => {
 
 	return (
 		<div className={styles.Container}>
+			{/* <div className={styles.SelectContainer}>
+				<h2>Select options</h2>
+				<Select
+					className={styles.Select}
+					options={options}
+					isMulti
+					components={makeAnimated()}></Select>
+			</div> */}
 			<button onClick={handleRestartClick}>Restart</button>
 			<h2>{message.main}</h2>
 			<h3>{message.secondary}</h3>
@@ -99,7 +109,7 @@ const Container: React.FC<OptionListProps> = ({ options }: OptionListProps) => {
 					<h2>Up next</h2>
 					<ul className={styles.UpNext}>
 						{remainingCards.map((o, index) => (
-							<li key={index}>{o.name}</li>
+							<li key={index}>{o.label}</li>
 						))}
 					</ul>
 				</>

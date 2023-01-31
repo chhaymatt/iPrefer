@@ -22,6 +22,7 @@ const Home = () => {
 			{/* <h2>Known Issues</h2>
 			<ul>
 			</ul> */}
+				
 		</div>
 	);
 };
