@@ -1,20 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<link rel="icon" type="image/svg+xml" href="/iPrefer/vite.svg" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link
-			href="https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Slab&display=swap"
-			rel="stylesheet" />
-		<title>iPrefer</title>
-		<script type="module" crossorigin src="/iPrefer/assets/index-61986969.js"></script>
-		<link rel="stylesheet" href="/iPrefer/assets/index-b9c3a190.css">
-	</head>
-	<body>
-		<div id="root"></div>
-		
-	</body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Slab&display=swap"
+            rel="stylesheet"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="/iPrefer/assets/apple-touch-icon-22e64861.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="data:image/png;base64,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"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAC40lEQVQ4T21TSUwTYRh9/0w73SgFWQq2QAkt0QSXyEHwgFHREOXAwQMm3iQonPTqDS9ePOAFg/HGBROUqAcNxCVENGJqKrgARVnaKJSlrS3tlM7iN22JSJjkZZZ/3vv/9/73M+y6VFU9Sp86CWcIVbnhRbq/JNxnjPl2Utj2CxFN9NxL6FDlNKesTQApP6CqgMENrvg4mE5QaPwB4ToJJTVuRiBHfk73k8rCEFj0IThnA2A9nP0l/hVK8D0USyv4mssg8hgNtGgi2wL9RO6Ufbeh6Hzwb9TC4TmAgtLK7AJVbbIE1OAI5PUS8PU9mohm5yrLefZK86Mcv3wLU1EniqvKEApGcKTpWIbve/UJ8egfOF1FcPELkAq6ofe0aXbqNYE+QtfW02aymgcUmvBxfBE/JpfRfrNZs4e3j6fhPlSMMrsZLJxEanoNQtuYtop7msBMOhaqlYbrYDroAmx6zM3HIKZl1DXYQRFioMeLExeq4K6xAtE0xJkAuJZ3EIqqZzWBVGJxQpBfn0NedTlYPg+YOEBP0BFIQqQIDEwBS8hQYwo2F5bBGh/B4jm1lRUITgqJZ43Y564AsxrBjAyqQPlyLLtNCq0jTRBVKLEUIj8DEM6O0oSNGYEZOS3WBu46YXfpkRIcsJVyWAqlIFFMCmWQb+FhJ2tqUoIUDeGXPwZH9xJ0ZlvGQh/N0RUYugbDxiC4/fUoNITBGQ1IyypNbAQvJ2BkMpTkBiKrEcSNrai8NKCtLROiVl3vVuQ3tzJ4Go7z7ZDCATA5Dv+HOQjSOiocDDxExGNbWF0xoOLKOIxFruw25prYT2F1pqbuQJ96Q955qGIEX0a+w+NhkGUKblNCLG5D+cVB8k4tRa5IO6r8QpwbbsLnbuo8B1WS8c2bQJ6J0rdUwFzbhpKmGxCsJcTdVeV/Ikqv6H/SIYdnOc5cAr2rlcTM4AQTcWhLGe3lXocpW/hc7f8/ztSszLVA2PM4/wWJY1A4PawDsgAAAABJRU5ErkJggg=="
+        />
+        <link rel="manifest" href="data:application/manifest+json;base64,eyJuYW1lIjoiIiwic2hvcnRfbmFtZSI6IiIsImljb25zIjpbeyJzcmMiOiIvYW5kcm9pZC1jaHJvbWUtMTkyeDE5Mi5wbmciLCJzaXplcyI6IjE5MngxOTIiLCJ0eXBlIjoiaW1hZ2UvcG5nIn0seyJzcmMiOiIvYW5kcm9pZC1jaHJvbWUtNTEyeDUxMi5wbmciLCJzaXplcyI6IjUxMng1MTIiLCJ0eXBlIjoiaW1hZ2UvcG5nIn1dLCJ0aGVtZV9jb2xvciI6IiNmZmZmZmYiLCJiYWNrZ3JvdW5kX2NvbG9yIjoiI2ZmZmZmZiIsImRpc3BsYXkiOiJzdGFuZGFsb25lIn0=" />
+        <!-- Primary Meta Tags -->
+        <title>iPrefer - Simplify your choices</title>
+        <meta name="title" content="iPrefer - Simplify your choices" />
+        <meta
+            name="description"
+            content="Easily compare options and make your choice with iPrefer."
+        />
+
+        <!-- Open Graph / Facebook -->
+        <meta property="og:type" content="website" />
+        <meta
+            property="og:url"
+            content="https://chhaymatt.github.io/iPrefer/"
+        />
+        <meta property="og:title" content="iPrefer - Simplify your choices" />
+        <meta
+            property="og:description"
+            content="Easily compare options and make your choice with iPrefer."
+        />
+        <meta property="og:image" content="https://i.imgur.com/kRyTJvI.png" />
+
+        <!-- Twitter -->
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta
+            property="twitter:url"
+            content="https://chhaymatt.github.io/iPrefer/"
+        />
+        <meta
+            property="twitter:title"
+            content="iPrefer - Simplify your choices"
+        />
+        <meta
+            property="twitter:description"
+            content="Easily compare options and make your choice with iPrefer."
+        />
+        <meta
+            property="twitter:image"
+            content="https://i.imgur.com/kRyTJvI.png"
+        />
+        <!-- Font Awesome -->
+        <script
+            src="https://kit.fontawesome.com/c3aaf1830b.js"
+            crossorigin="anonymous"
+        ></script>
+      <script type="module" crossorigin src="/iPrefer/assets/index-1d5d59f8.js"></script>
+      <link rel="stylesheet" href="/iPrefer/assets/index-9b1162ef.css">
+    </head>
+    <body>
+        <div id="root"></div>
+        
+    </body>
 </html>
