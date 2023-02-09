@@ -2,26 +2,44 @@ import { useEffect, useState } from "react"
 import { OptionProps } from "../../interfaces/props"
 import styles from "./Select.module.scss"
 
-type SelectProps = {
-    options: OptionProps[]
-    onChange: (value: OptionProps | undefined) => void
-    value?: OptionProps
+type MultipleSelectProps = {
+    multiple: true
+    value: OptionProps[]
+    onChange: (value: OptionProps[]) => void
 }
 
-const Select = ({ onChange, options, value }: SelectProps) => {
+type SingleSelectProps = {
+    multiple?: false
+    value?: OptionProps
+    onChange: (value: OptionProps | undefined) => void
+}
+
+type SelectProps = {
+    options: OptionProps[]
+} & (SingleSelectProps | MultipleSelectProps)
+
+const Select = ({ multiple, onChange, options, value }: SelectProps) => {
     const [isOpen, setIsOpen] = useState(false)
     const [highlightedIndex, setHighlightedIndex] = useState(0)
 
     const clearOptions = () => {
-        onChange(undefined)
+        multiple ? onChange([]) : onChange(undefined)
     }
 
     const selectOption = (option: OptionProps) => {
-        if (option !== value) onChange(option)
+        if (multiple) {
+            if (value.includes(option)) {
+                onChange(value.filter((o) => o !== option))
+            } else {
+                onChange([...value, option])
+            }
+        } else {
+            if (option !== value) onChange(option)
+        }
     }
 
     const isOptionSelected = (option: OptionProps) => {
-        return option === value
+        return multiple ? value.includes(option) : option === value
     }
 
     // Reset highlighted index
@@ -36,13 +54,31 @@ const Select = ({ onChange, options, value }: SelectProps) => {
             tabIndex={0}
             className={styles.Container}
         >
-            <span className={styles.Value}>{value?.label}</span>
+            <span className={styles.Value}>
+                {multiple
+                    ? value.map((v) => (
+                          <button
+                              key={v.value}
+                              onClick={(e) => {
+                                  e.stopPropagation()
+                                  selectOption(v)
+                              }}
+                              className={styles["Option-Badge"]}
+                          >
+                              {v.label}
+                              <span className={styles["Remove-Btn"]}>
+                                  &times;
+                              </span>
+                          </button>
+                      ))
+                    : value?.label}
+            </span>
             <button
                 onClick={(e) => {
                     e.stopPropagation()
                     clearOptions()
                 }}
-                className={styles["Clear-btn"]}
+                className={styles["Clear-Btn"]}
             >
                 &times;
             </button>
@@ -54,7 +90,7 @@ const Select = ({ onChange, options, value }: SelectProps) => {
                         onClick={(e) => {
                             e.stopPropagation()
                             selectOption(option)
-                            setIsOpen(false)
+                            //setIsOpen(false)
                         }}
                         onMouseEnter={() => setHighlightedIndex(index)}
                         key={option.value}
