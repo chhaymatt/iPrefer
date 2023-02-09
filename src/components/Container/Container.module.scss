@@ -1,25 +1,14 @@
 .Container {
-	margin-top: 72px;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	width: 100%;
-	overflow: hidden;
+    margin-top: 72px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    overflow: hidden;
 
-	h1 h2 h3 {
-		text-align: center;
-	}
-}
-
-.Select {
-	width: 80%;
-	color: black;
-}
-
-.SelectContainer {
-	width: 100%;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	padding: 1rem;
+    h1,
+    h2,
+    h3 {
+        text-align: center;
+    }
 }

@@ -1,43 +1,43 @@
 .Container {
-	margin-top: 72px;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	padding: 3rem;
-	max-width: 75vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 3rem;
+    max-width: 75vw;
 }
 
 h1 {
-	margin: 1rem;
+    margin: 1rem;
 }
 
 h2 {
-	margin: 1rem;
+    margin: 1rem;
 }
+
 h3 {
-	margin: 1rem;
+    margin: 1rem;
 }
 
 p {
-	margin-bottom: 1rem;
+    margin-bottom: 1rem;
 }
 
 .Link {
-	text-align: center;
-	margin: 1rem;
-	padding: 2rem 4rem;
-	width: 200px;
-	border-radius: 1rem;
-	background-color: rgba(54, 54, 54, 0.8);
-	border: 1px solid #363636;
-	transition: 0.25s;
+    text-align: center;
+    margin: 1rem;
+    padding: 2rem 4rem;
+    width: 200px;
+    border-radius: 1rem;
+    background-color: rgba(54, 54, 54, 0.8);
+    border: 1px solid #363636;
+    transition: 0.25s;
 
-	&:hover {
-		border: 1px solid;
-		background-color: rgba(54, 54, 54, 1);
-	}
-	@media (prefers-color-scheme: light) {
-		background-color: rgba(255, 255, 255, 0.8);
-		color: #363636;
-	}
+    &:hover {
+        border: 1px solid;
+        background-color: rgba(54, 54, 54, 1);
+    }
+    @media (prefers-color-scheme: light) {
+        background-color: rgba(255, 255, 255, 0.8);
+        color: #363636;
+    }
 }

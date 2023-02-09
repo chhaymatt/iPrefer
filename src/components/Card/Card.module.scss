@@ -1,86 +1,86 @@
 @use "../../styles/mixin";
 
 .Card {
-	display: flex;
-	align-items: center;
-	flex-direction: column;
-	width: 40%;
-	margin: 2%;
-	border-radius: 1rem;
-	border: 1px solid;
-	box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
-		rgba(0, 0, 0, 0.22) 0px 15px 12px;
-	transition: 0.3s;
-	user-select: none;
-	background-position-x: center;
-	background-repeat: no-repeat;
-	background-size: cover;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 40%;
+    margin: 2%;
+    border-radius: 1rem;
+    border: 1px solid;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
+        rgba(0, 0, 0, 0.22) 0px 15px 12px;
+    transition: 0.3s;
+    user-select: none;
+    background-position-x: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 
-	&__ImagePop {
-		position: relative;
-		width: 150%;
-		height: 300px;
-		left: -25%;
-		top: -3rem;
-		object-fit: scale-down;
-	}
+    &__ImagePop {
+        position: relative;
+        width: 150%;
+        height: 300px;
+        left: -25%;
+        top: -3rem;
+        object-fit: scale-down;
+    }
 
-	&__Logo {
-		width: 5rem;
-		height: 5rem;
-		margin: 1rem;
-		background-size: contain;
-		background-position: center;
-		background-repeat: no-repeat;
-		filter: brightness(0) invert(1);
-	}
+    &__Logo {
+        width: 5rem;
+        height: 5rem;
+        margin: 1rem;
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+        filter: brightness(0) invert(1);
+    }
 
-	&__Name {
-		font-size: 2rem;
-		color: white;
-		text-align: center;
-		height: 2rem;
-		line-height: 2rem;
+    &__Name {
+        font-size: 2rem;
+        color: white;
+        text-align: center;
+        height: 3rem;
+        line-height: 2rem;
 
-		@include mixin.phone {
-			font-size: 1rem;
-		}
+        @include mixin.phone {
+            font-size: 1rem;
+        }
 
-		@include mixin.tablet {
-			font-size: 1.25rem;
-		}
+        @include mixin.tablet {
+            font-size: 1.25rem;
+        }
 
-		@include mixin.tablet-landscape {
-			font-size: 1.5rem;
-		}
-	}
+        @include mixin.tablet-landscape {
+            font-size: 1.5rem;
+        }
+    }
 
-	&__Info {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
-		width: 100%;
-		border-bottom-left-radius: 1rem;
-		border-bottom-right-radius: 1rem;
-		background: rgb(0, 0, 0);
-		background: linear-gradient(
-			0deg,
-			rgba(0, 0, 0, 1) 0%,
-			rgba(255, 255, 255, 0) 100%
-		);
-	}
+    &__Info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        border-bottom-left-radius: 1rem;
+        border-bottom-right-radius: 1rem;
+        background: rgb(0, 0, 0);
+        background: linear-gradient(
+            0deg,
+            rgba(0, 0, 0, 1) 0%,
+            rgba(255, 255, 255, 0) 100%
+        );
+    }
 
-	&:hover {
-		cursor: pointer;
-		box-shadow: rgba(255, 255, 255, 0.3) 0px 19px 38px,
-			rgba(255, 255, 255, 0.22) 0px 15px 12px;
-		transform: scale(1.1);
+    &:hover {
+        cursor: pointer;
+        box-shadow: rgba(255, 255, 255, 0.3) 0px 19px 38px,
+            rgba(255, 255, 255, 0.22) 0px 15px 12px;
+        transform: scale(1.1);
 
-		@include mixin.phone {
-			transform: scale(1.05);
-			box-shadow: rgba(255, 255, 255, 0.3) 0px 5px 5px,
-				rgba(255, 255, 255, 0.22) 0px 10px 5px;
-		}
-	}
+        @include mixin.phone {
+            transform: scale(1.05);
+            box-shadow: rgba(255, 255, 255, 0.3) 0px 5px 5px,
+                rgba(255, 255, 255, 0.22) 0px 10px 5px;
+        }
+    }
 }

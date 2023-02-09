@@ -1,0 +1,85 @@
+.Container {
+    position: relative;
+    width: 20em;
+    min-height: 1.5em;
+    border: 0.05em solid #777;
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    padding: 0.5em;
+    border-radius: 0.25em;
+    outline: none;
+}
+
+.Container:focus {
+    border-color: hsl(200, 100%, 50%);
+}
+
+.Value {
+    flex-grow: 1;
+    display: flex;
+    gap: 0.5em;
+    flex-wrap: wrap;
+}
+
+.Clear-btn {
+    background: none;
+    color: #777;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+    font-size: 1.25em;
+}
+
+.Clear-btn:focus,
+.Clear-btn:hover {
+    color: #333;
+}
+
+.Divider {
+    background-color: #777;
+    align-self: stretch;
+    width: 0.05em;
+}
+
+.Caret {
+    translate: 0 25%;
+    border: 0.25em solid transparent;
+    border-top-color: #777;
+}
+
+.Options {
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: none;
+    max-height: 15em;
+    overflow-y: auto;
+    border: 0.05em solid #777;
+    border-radius: 0.25em;
+    width: 100%;
+    left: 0;
+    top: calc(100% + 0.25em);
+    background-color: rgb(73, 73, 73);
+    z-index: 100;
+}
+
+.Options.Show {
+    display: block;
+}
+
+.Option {
+    padding: 0.25em 0.5em;
+    cursor: pointer;
+}
+
+.Option.Selected {
+    background-color: hsl(200, 100%, 70%);
+}
+
+.Option.Highlighted {
+    background-color: hsl(200, 100%, 50%);
+}

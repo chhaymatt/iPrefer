@@ -1,121 +1,112 @@
-import styles from "./Container.module.scss";
-import { useEffect, useState } from "react";
-import { OptionListProps, OptionProps } from "../../interfaces/props";
-import CardList from "../CardList/CardList";
-import Select from "react-select";
-import makeAnimated from "react-select/animated";
+import styles from "./Container.module.scss"
+import { useEffect, useState } from "react"
+import { OptionListProps, OptionProps } from "../../interfaces/props"
+import CardList from "../CardList/CardList"
 
 const Container: React.FC<OptionListProps> = ({ options }: OptionListProps) => {
-	// Get unique cards
-	const getUniqueCards = (cards: OptionProps[]) => {
-		const firstCard = cards[Math.floor(Math.random() * cards.length)];
-		const otherCards = cards.filter((card) => card !== firstCard);
-		const secondCard =
-			otherCards[Math.floor(Math.random() * otherCards.length)];
-		return [firstCard, secondCard];
-	};
+    const [deck, setDeck] = useState(options)
 
-	// Generate message
-	const [message, setMessage] = useState({ main: "", secondary: "" });
+    // Get unique cards
+    const getUniqueCards = (cards: OptionProps[]) => {
+        const firstCard = cards[Math.floor(Math.random() * cards.length)]
+        const otherCards = cards.filter((card) => card !== firstCard)
+        const secondCard =
+            otherCards[Math.floor(Math.random() * otherCards.length)]
+        return [firstCard, secondCard]
+    }
 
-	// Generate two random cards on load
-	const [twoCards, setTwoCards] = useState(getUniqueCards(options));
+    // Generate message
+    const [message, setMessage] = useState({ main: "", secondary: "" })
 
-	// Generate remaining cards by filtering the initial twoCards
-	const [remainingCards, setRemainingCards] = useState(
-		options.filter((card) => !twoCards.includes(card))
-	);
+    // Generate two random cards on load
+    const [twoCards, setTwoCards] = useState(getUniqueCards(deck))
 
-	// Restart cards
-	const handleRestartClick = () => {
-		const newTwoCards = getUniqueCards(options);
-		setTwoCards(newTwoCards);
-		setRemainingCards(
-			options.filter((card) => !newTwoCards.includes(card))
-		);
-	};
+    // Generate remaining cards by filtering the initial twoCards
+    const [remainingCards, setRemainingCards] = useState(
+        deck.filter((card) => !twoCards.includes(card))
+    )
 
-	// Click a card
-	const handleCardClick = (clickedCard: OptionProps, index: number) => {
-		// Generate random card and remember clicked card position
-		const randomCard =
-			remainingCards[Math.floor(Math.random() * remainingCards.length)];
+    // Restart cards
+    const handleRestartClick = () => {
+        const newTwoCards = getUniqueCards(deck)
+        setTwoCards(newTwoCards)
+        setRemainingCards(deck.filter((card) => !newTwoCards.includes(card)))
+    }
 
-		let newTwoCards = [...twoCards];
-		newTwoCards[index] = clickedCard;
-		newTwoCards[1 - index] = randomCard;
+    // Click a card
+    const handleCardClick = (clickedCard: OptionProps, index: number) => {
+        // Generate random card and remember clicked card position
+        const randomCard =
+            remainingCards[Math.floor(Math.random() * remainingCards.length)]
 
-		// Save the twoCards and remainingCards
-		setTwoCards(newTwoCards);
-		setRemainingCards(
-			remainingCards.filter(
-				(remainingCard) => !newTwoCards.includes(remainingCard)
-			)
-		);
+        let newTwoCards = [...twoCards]
+        newTwoCards[index] = clickedCard
+        newTwoCards[1 - index] = randomCard
 
-		// Save clicked card if there are no remainingCards
-		if (remainingCards.length === 0) {
-			setTwoCards([clickedCard]);
-		}
-	};
+        // Save the twoCards and remainingCards
+        setTwoCards(newTwoCards)
+        setRemainingCards(
+            remainingCards.filter(
+                (remainingCard) => !newTwoCards.includes(remainingCard)
+            )
+        )
 
-	useEffect(() => {
-		if (twoCards.length === 1) {
-			setMessage({
-				main: `I prefer ${twoCards[0].label}!`,
-				secondary: `Want to try again? Press the Restart button.`,
-			});
-		}
-		if (remainingCards.length > 1) {
-			setMessage({
-				main: `${twoCards[0].label} or ${twoCards[1].label}?`,
-				secondary: `${remainingCards.length} more options to go.`,
-			});
-		}
+        // Save clicked card if there are no remainingCards
+        if (remainingCards.length === 0) {
+            setTwoCards([clickedCard])
+        }
+    }
 
-		if (remainingCards.length === 1) {
-			setMessage({
-				main: `${twoCards[0].label} or ${twoCards[1].label}?`,
-				secondary: `${remainingCards.length} more option to go.`,
-			});
-		}
+    useEffect(() => {
+        const cardStatus = remainingCards.length
+        let main = ""
+        let secondary = ""
 
-		if (remainingCards.length === 0 && twoCards.length > 1) {
-			setMessage({
-				main: `${twoCards[0].label} or ${twoCards[1].label}?`,
-				secondary: `Last option.`,
-			});
-		}
-	}, [remainingCards]);
+        if (twoCards.length === 2) {
+            switch (cardStatus) {
+                case 0:
+                    main = `${twoCards[0].label} or ${twoCards[1].label}?`
+                    secondary = `Last option.`
+                    break
+                case 1:
+                    main = `${twoCards[0].label} or ${twoCards[1].label}?`
+                    secondary = `${cardStatus} more option to go.`
+                    break
+                default:
+                    main = `${twoCards[0].label} or ${twoCards[1].label}?`
+                    secondary = `${cardStatus} more cards to go.`
+                    break
+            }
+        }
 
-	return (
-		<div className={styles.Container}>
-			{/* <div className={styles.SelectContainer}>
-				<h2>Select options</h2>
-				<Select
-					className={styles.Select}
-					options={options}
-					isMulti
-					components={makeAnimated()}></Select>
-			</div> */}
-			<button onClick={handleRestartClick}>Restart</button>
-			<h2>{message.main}</h2>
-			<h3>{message.secondary}</h3>
-			<CardList cards={twoCards} handleCardClick={handleCardClick} />
-			{remainingCards.length === 0 ? (
-				""
-			) : (
-				<>
-					<h2>Up next</h2>
-					<ul className={styles.UpNext}>
-						{remainingCards.map((o, index) => (
-							<li key={index}>{o.label}</li>
-						))}
-					</ul>
-				</>
-			)}
-		</div>
-	);
-};
+        if (twoCards.length === 1) {
+            main = `I prefer ${twoCards[0].label}!`
+            secondary = `Want to try again? Press the Restart button.`
+        }
 
-export default Container;
+        setMessage({ main, secondary })
+    }, [remainingCards, twoCards])
+
+    return (
+        <div className={styles.Container}>
+            <h2>{message.main}</h2>
+            <h3>{message.secondary}</h3>
+            <button onClick={handleRestartClick}>Restart</button>
+            <CardList cards={twoCards} handleCardClick={handleCardClick} />
+            {remainingCards.length === 0 ? (
+                ""
+            ) : (
+                <>
+                    <h2>Up next</h2>
+                    <ul className={styles.UpNext}>
+                        {remainingCards.map((o, index) => (
+                            <li key={index}>{o.label}</li>
+                        ))}
+                    </ul>
+                </>
+            )}
+        </div>
+    )
+}
+
+export default Container
