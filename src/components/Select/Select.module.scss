@@ -1,8 +1,6 @@
 .Container {
     position: relative;
     width: 100%;
-    min-width: 350px;
-    max-width: 968px;
     min-height: 1.5em;
     border: 0.05em solid #777;
     display: flex;
@@ -38,7 +36,6 @@
 .Clear-Btn:focus,
 .Clear-Btn:hover {
     color: white;
-
 }
 
 .Divider {
