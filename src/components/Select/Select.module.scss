@@ -1,6 +1,8 @@
 .Container {
     position: relative;
     width: 100%;
+    min-width: 350px;
+    max-width: 968px;
     min-height: 1.5em;
     border: 0.05em solid #777;
     display: flex;
@@ -28,14 +30,15 @@
     border: none;
     outline: none;
     cursor: pointer;
-    padding: 0;
+    padding: 0.25em;
     margin: 0;
     font-size: 1.25em;
 }
 
 .Clear-Btn:focus,
 .Clear-Btn:hover {
-    color: #333;
+    color: white;
+
 }
 
 .Divider {
@@ -109,5 +112,9 @@
 
 .Option-Badge > .Remove-Btn {
     font-size: 1.25em;
-    //color: #777;
+    color: #777;
+}
+
+.Checked {
+    margin-right: 0.5em;
 }

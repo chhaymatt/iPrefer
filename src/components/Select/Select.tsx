@@ -100,7 +100,16 @@ const Select = ({ multiple, onChange, options, value }: SelectProps) => {
                             index === highlightedIndex ? styles.Highlighted : ""
                         }`}
                     >
-                        {option.label}
+                        {multiple && (
+                            <span className={styles.Checked}>
+                                {isOptionSelected(option) ? (
+                                    <i className="fa-solid fa-square-check"></i>
+                                ) : (
+                                    <i className="fa-regular fa-square"></i>
+                                )}
+                            </span>
+                        )}
+                        <span>{option.label}</span>
                     </li>
                 ))}
             </ul>
