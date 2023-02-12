@@ -5,7 +5,6 @@ import CreateYourOwn from "./components/CreateYourOwn/CreateYourOwn"
 import Footer from "./components/Footer/Footer"
 import Home from "./components/Home/Home"
 import Nav from "./components/Nav/Nav"
-import Select from "./components/Select/Select"
 import food from "./services/food"
 import games from "./services/games"
 

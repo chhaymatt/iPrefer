@@ -9,6 +9,7 @@
     padding: 0.5em;
     border-radius: 0.25em;
     outline: none;
+    background-color: rgba(54, 54, 54, 0.8);
 }
 
 .Container:focus {
@@ -63,7 +64,9 @@
     width: 100%;
     left: 0;
     top: calc(100% + 0.25em);
-    background-color: rgb(73, 73, 73);
+    background-color: rgba(54, 54, 54, 0.8);
+    backdrop-filter: blur(2rem);
+    -webkit-backdrop-filter: blur(2em);
     z-index: 100;
 }
 

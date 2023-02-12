@@ -1,30 +1,3 @@
-// .Nav {
-//     padding: 1rem;
-//     background-color: rgba(255, 255, 255, 0.8);
-//     backdrop-filter: blur(10px);
-//     width: 100%;
-//     color: black;
-//     position: fixed;
-//     z-index: 100;
-//     top: 0;
-//     display: flex;
-//     justify-content: space-between;
-
-//     @media (prefers-color-scheme: dark) {
-//         background-color: rgba(0, 0, 0, 0.8);
-//         color: white;
-//     }
-// }
-
-// .Link {
-//     padding: 1rem;
-// }
-
-// .Active {
-//     padding: 1rem;
-//     color: #5d93fe;
-// }
-
 @use "../../styles/mixin";
 
 .Nav {
@@ -38,11 +11,11 @@
     justify-content: center;
     align-items: center;
     font-size: 1.2rem;
-    z-index: 999;
+    z-index: 100;
     width: 100%;
 
     @media (prefers-color-scheme: dark) {
-        background-color: rgba(0, 0, 0, 0.8);
+        background-color: rgba(54, 54, 54, 0.8);
         color: white;
     }
 }
@@ -67,17 +40,6 @@
     }
 }
 
-.Badge {
-    margin-left: 0.5rem;
-    border-radius: 100%;
-    //background-color: palette.$tertiary-colour;
-    width: 2rem;
-    height: 2rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 .Menu {
     margin-right: 2rem;
     display: flex;
@@ -100,8 +62,6 @@
     &__Active {
         color: #5d93fe;
         padding: 1rem 0.5rem;
-        display: flex;
-        align-items: center;
     }
 
     &:hover {
@@ -112,23 +72,18 @@
 
 .MenuIcon {
     display: none;
-    //color: palette.$primary-colour;
-
-    &:hover {
-        // color: palette.$secondary-colour;
-    }
 }
 
 @include mixin.phone {
     .Menu {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        // height: 100vh;
         position: absolute;
+        margin: 0;
         top: 80px;
+        width: 100%;
         left: -100%;
+        flex-direction: column;
         transition: all 0.5s;
+        background-color: rgba(255, 255, 255, 0.8);
         backdrop-filter: blur(2rem);
         -webkit-backdrop-filter: blur(2em);
 
@@ -140,28 +95,25 @@
 
     .Menu.active {
         left: 0;
-        transition: all 0.5s ease;
         z-index: 1;
     }
 
     .Link {
-        text-align: left;
-        padding: 2rem;
         width: 100%;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        padding: 2rem;
+        text-align: left;
+        border-top: 1px solid rgba(0, 0, 0, 0.1);
         @media (prefers-color-scheme: dark) {
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         &__Active {
             width: 100%;
-            color: #5d93fe;
             padding: 2rem;
-            display: flex;
-            align-items: center;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            color: #5d93fe;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
             @media (prefers-color-scheme: dark) {
-                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+                border-top: 1px solid rgba(255, 255, 255, 0.1);
             }
         }
 

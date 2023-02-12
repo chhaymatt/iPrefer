@@ -10,7 +10,6 @@ const Home = () => {
                 options at a time, narrowing down the choices until the perfect
                 one is found.
             </p>
-            <br></br>
             <h2>Categories</h2>
             <p>Get started by clicking on a category below.</p>
             <NavLink className={styles.Link} to="/games">
