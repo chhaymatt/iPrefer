@@ -89,9 +89,10 @@ const Container: React.FC<OptionListProps> = ({ options }: OptionListProps) => {
 
     return (
         <div className={styles.Container}>
+            <button onClick={handleRestartClick}>Restart</button>
             <h2>{message.main}</h2>
             <h3>{message.secondary}</h3>
-            <button onClick={handleRestartClick}>Restart</button>
+
             <CardList cards={twoCards} handleCardClick={handleCardClick} />
             {remainingCards.length === 0 ? (
                 ""
