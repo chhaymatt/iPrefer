@@ -1,14 +1,16 @@
 .Container {
-    margin-top: 72px;
+    margin-top: 1rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
     overflow: hidden;
 
-    h1,
-    h2,
-    h3 {
-        text-align: center;
+    h1 {
+        margin: 1rem 0rem;
+    }
+
+    h2 {
+        margin: 1rem 0rem;
     }
 }

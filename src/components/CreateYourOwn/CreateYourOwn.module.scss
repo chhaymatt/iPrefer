@@ -1,7 +1,28 @@
 .Container {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    padding: 3rem;
     height: 100%;
+    width: 75%;
+
+    h1 {
+        margin: 1rem 0rem;
+    }
+
+    h2 {
+        margin: 1rem 0rem;
+    }
+
+    h3 {
+        margin-top: 1rem;
+        margin-bottom: 0.5rem;
+    }
+
+    ul > li > ul {
+        margin-left: 1rem;
+    }
+}
+
+.IssuesList {
+    margin-left: 1rem;
+    margin-bottom: 0.5rem;
 }

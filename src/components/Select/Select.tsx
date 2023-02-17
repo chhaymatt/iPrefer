@@ -127,7 +127,7 @@ const Select = ({ multiple, onChange, options, value }: SelectProps) => {
                         onClick={(e) => {
                             e.stopPropagation()
                             selectOption(option)
-                            setIsOpen(false)
+                            // setIsOpen(false)
                         }}
                         onMouseEnter={() => setHighlightedIndex(index)}
                         key={option.value}

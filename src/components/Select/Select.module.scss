@@ -1,6 +1,5 @@
 .Container {
     position: relative;
-    width: 100%;
     min-height: 1.5em;
     border: 0.05em solid #777;
     display: flex;
@@ -10,11 +9,17 @@
     border-radius: 0.25em;
     outline: none;
     background-color: rgba(54, 54, 54, 0.8);
+
+    &:hover {
+        border-color: #5d93fe;
+        background-color: rgba(54, 54, 54, 1);
+    }
+
+    &:focus {
+        border-color: #5d93fe;
+    }
 }
 
-.Container:focus {
-    border-color: hsl(200, 100%, 50%);
-}
 
 .Value {
     flex-grow: 1;
@@ -102,7 +107,8 @@
 .Option-Badge:hover,
 .Option-Badge:focus {
     background-color: hsl(0, 100%, 90%);
-    border-color: hsl(0, 100%, 50%);
+    border-color: red;
+    color: red;
 }
 
 .Option-Badge:hover > .Remove-Btn,
